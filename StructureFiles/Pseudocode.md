@@ -4,7 +4,7 @@ This document contains pseudocode for two key processes in a restaurant ordering
 
 ---
 
-## Pseudocode 1: Add to Cart
+##  1: Add to Cart
 
 The **Add to Cart** process ensures that a user can add an item to their shopping cart. The process checks if the user is logged in, displays the item details, and then adds the selected item to the cart. If the item is already in the cart, its quantity is incremented.
 
@@ -47,8 +47,9 @@ BEGIN AddToCartProcess
         PROMPT "Proceed to checkout or continue browsing?"
     END ON_CLICK
 END
-## Pseudocode 2: Modify Cart
-```plaintext
+
+ 2: Modify Cart
+
 BEGIN ModifyCartProcess
     // Step 1: User opens cart page
     DISPLAY cart_page WITH user_cart.items
