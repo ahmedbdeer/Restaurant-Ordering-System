@@ -47,3 +47,35 @@ BEGIN AddToCartProcess
         PROMPT "Proceed to checkout or continue browsing?"
     END ON_CLICK
 END
+## Pseudocode 2: Modify Cart
+```plaintext
+BEGIN ModifyCartProcess
+    // Step 1: User opens cart page
+    DISPLAY cart_page WITH user_cart.items
+
+    // Step 2: User selects item to modify
+    selected_item = GET_INPUT("Select item (by ID or name): ")
+
+    // Step 3: Choose action (Update or Remove)
+    DISPLAY "Choose action: [1] Update Quantity, [2] Remove Item"
+    action = GET_INPUT("Enter action (1 or 2): ")
+
+    CASE action OF
+        "1":  // Update Quantity
+            new_quantity = GET_INPUT("Enter new quantity: ")
+            IF new_quantity > 0 THEN
+                UPDATE selected_item.quantity TO new_quantity
+            ELSE
+                REMOVE selected_item FROM user_cart.items
+            END IF
+
+        "2":  // Remove Item
+            REMOVE selected_item FROM user_cart.items
+
+        DEFAULT:
+            DISPLAY "Invalid action."
+    END CASE
+
+    // Refresh and display updated cart
+    DISPLAY user_cart
+END
